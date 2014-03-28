@@ -1,0 +1,1 @@
+mongoimport -v --host localhost --db mydb --collection urls --type tsv --fields granularity,bucket,url,count --file data/output.tsv

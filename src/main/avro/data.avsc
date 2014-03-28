@@ -1,0 +1,26 @@
+{
+    "type": "record",
+    "name": "Data",
+    "fields": [
+        {
+            "name": "timestamp",
+            "type": "int"
+        },
+        {
+            "name": "dataunit",
+            "type": {
+                "type": "record",
+                "name": "DataUnit",
+                "namespace": "piotr.avro",
+                "fields": [
+                    {
+                        "name": "name",
+                        "type": "string"
+                    }
+                ]
+            }
+
+        }
+    ],
+    "namespace": "piotr.avro"
+}

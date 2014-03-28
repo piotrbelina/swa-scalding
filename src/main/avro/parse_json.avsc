@@ -1,0 +1,8 @@
+{
+"type": "record", "name": "parseJson", "fields": [
+{ "name": "sessionId", "type": "string" },
+{ "name": "optionalField", "type": ["string", "null"] }
+],
+"namespace": "piotr.avro"
+
+ }

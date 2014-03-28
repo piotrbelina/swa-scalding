@@ -10,6 +10,8 @@
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the Apache License Version 2.0 for the specific language governing permissions and limitations there under.
  */
+
+import com.twitter.scrooge.ScroogeSBT
 import sbt._
 import Keys._
 
@@ -29,9 +31,21 @@ object ScaldingExampleProjectBuild extends Build {
     .settings(
       libraryDependencies ++= Seq(
         Libraries.scaldingCore,
+        Libraries.scaldingAvro,
+        Libraries.scaldingCommons,
+        Libraries.scaldingJson,
         Libraries.hadoopCore,
-        Libraries.specs2
+        Libraries.specs2,
         // Add your additional libraries here (comma-separated)...
+//        Libraries.slf4j_api,
+//        Libraries.slf4j_simple
+        Libraries.slf4j_log4j12,
+        Libraries.scroogeCore,
+        Libraries.thrift,
+        Libraries.dfsdatastores
       )
     )
+    .settings(sbtavro.SbtAvro.avroSettings : _*)
+    .settings(ScroogeSBT.newSettings : _*)
+
 }
