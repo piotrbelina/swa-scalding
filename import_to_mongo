@@ -1,1 +1,5 @@
-mongoimport -v --host localhost --db mydb --collection urls --type tsv --fields granularity,bucket,url,count --file data/output.tsv
+mongo mydb --eval "db.url.remove()"
+mongo mydb --eval "db.url_count.remove()"
+
+mongoimport -v --host localhost --db mydb --collection url --type tsv --fields timestamp,event,url,cookie,uuid --file data/enriched.tsv
+mongoimport -v --host localhost --db mydb --collection url_count --type tsv --fields granularity,bucket,url,count --file data/output.tsv
